@@ -26,7 +26,7 @@ func main() {
 
 	sumServiceClient = sum.NewSumService("go.micro.learning.srv.sum", service.Options().Service.Options().Client)
 
-	service.Handle("/", http.FileServer(http.Dir("../html")))
+	service.Handle("/", http.FileServer(http.Dir("./html")))
 	service.HandleFunc("/sum", Sum)
 
 	//
@@ -41,6 +41,7 @@ func Sum(w http.ResponseWriter, r *http.Request) {
 	input, err := strconv.ParseInt(inputString, 10, 10)
 	if err != nil {
 		w.Write([]byte(err.Error()))
+		return
 	}
 	req := &sum.SumRequest{
 		Input: input,
