@@ -128,6 +128,13 @@ func GetSum(input int64) (ret int64) {
 
 3.创建服务
 \>NewService服务
+
 \>Init初始化
+
 \>挂载接口
+
 \>运行
+windows环境下，不支持MSDN，需要安装ETCD，运行时输入*go run main.go --registry=etcd*
+
+## API聚合
+
